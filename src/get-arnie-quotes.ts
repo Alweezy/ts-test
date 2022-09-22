@@ -1,7 +1,8 @@
 import { httpGet } from './mock-http-interface';
 
-type TResult = any[];
+type TResult  = []
 
+type TResults = any
 
 /**
  * Used to retrueve ArniQuotes from a list of urls
@@ -12,7 +13,7 @@ export const getArnieQuotes = async (urls : string[]) : Promise<TResult[]> => {
   const promises = urls.map( url  => httpGet(url));
 
   const data = await Promise.all(promises);
-  let results: TResult = []
+  let results: TResults = []
   data.map(result => {
     const response = JSON.parse(result.body)
 
