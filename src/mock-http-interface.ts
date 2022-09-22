@@ -23,6 +23,10 @@ export const httpGet = async (url : string) => {
     return { status: 200, body: JSON.stringify({ message }) };
   } 
   catch (err) {
-    return { status: 500, body: JSON.stringify({ message: err.message }) };
+    if (err instanceof Error) {
+      return { status: 500, body: JSON.stringify({ message: err.message }) };
+    } else {
+      return { status: 500, body: JSON.stringify({ message: 'Iternal server error' }) };
+    };
   }
 };

@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import { getArnieQuotes } from './get-arnie-quotes';
 
 const urls = [
